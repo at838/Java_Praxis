@@ -2,16 +2,16 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class TripPlanner {
-
+    private static final int  mins_in_a_day = 24*60;
     public static void main(String[] args) {
 
-        greeting();
-        travel_time_budget();
-        time_difference();
+        displaygreeting();
+        displaytravel_time_budget();
+        displaytime_difference();
 
     }
 
-    private static void greeting(){
+    private static void displaygreeting(){
         System.out.print("Welcome to Trip Planner");
         System.out.print("\nWhat is your name?");
         Scanner input = new Scanner(System.in);
@@ -22,7 +22,7 @@ public class TripPlanner {
         System.out.println("****************");
     }
 
-    private static void travel_time_budget(){
+    private static void displaytravel_time_budget(){
         Scanner input = new Scanner(System.in).useLocale(Locale.US);
         System.out.print("How many days are you going to spend travelling?");
         int days = input.nextInt();
@@ -45,14 +45,16 @@ public class TripPlanner {
         System.out.println("\n*************");
     }
 
-    private static void time_difference(){
-        Scanner input = new Scanner(System.in);
+    private static void displaytime_difference(){
+        Scanner input = new Scanner(System.in).useLocale(Locale.US);
         System.out.println("\nWhat is the time difference, in hours, between your home and your destination?");
         double hour_difference = input.nextDouble();
-        int hours_dest, mins_dest;
-        hours_dest = (int)(hour_difference);
-
-        System.out.println("That means when it is midnight at home it will be ");
+        double mins_difference = hour_difference * 60;
+        mins_difference += mins_in_a_day;
+        mins_difference %= mins_in_a_day;
+        int hours_from_mins =(int)(mins_difference/60);
+        mins_difference %= 60;
+        System.out.printf("That means when it is midnight at home it will be %02d:%02d ",hours_from_mins,(int)mins_difference);
     }
 
 }
