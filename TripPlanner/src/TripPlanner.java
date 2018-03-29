@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class TripPlanner {
     private static final int  mins_in_a_day = 24*60;
+    private static Scanner input = new Scanner(System.in).useLocale(Locale.US);
     public static void main(String[] args) {
 
         displaygreeting();
@@ -14,7 +15,6 @@ public class TripPlanner {
     private static void displaygreeting(){
         System.out.print("Welcome to Trip Planner");
         System.out.print("\nWhat is your name?");
-        Scanner input = new Scanner(System.in);
         String name = input.nextLine();
         System.out.print("Nice to meet you" + " " +name+ ", where are you travelling to?");
         String city = input.next();
@@ -23,7 +23,6 @@ public class TripPlanner {
     }
 
     private static void displaytravel_time_budget(){
-        Scanner input = new Scanner(System.in).useLocale(Locale.US);
         System.out.print("How many days are you going to spend travelling?");
         int days = input.nextInt();
         System.out.print("How much money in USD are you planning to spend?");
@@ -46,7 +45,6 @@ public class TripPlanner {
     }
 
     private static void displaytime_difference(){
-        Scanner input = new Scanner(System.in).useLocale(Locale.US);
         System.out.println("\nWhat is the time difference, in hours, between your home and your destination?");
         double hour_difference = input.nextDouble();
         double mins_difference = hour_difference * 60;
@@ -56,5 +54,8 @@ public class TripPlanner {
         mins_difference %= 60;
         System.out.printf("That means when it is midnight at home it will be %02d:%02d ",hours_from_mins,(int)mins_difference);
     }
+
+    private static void display_area(){
+     }
 
 }
