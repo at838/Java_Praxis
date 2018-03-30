@@ -1,10 +1,13 @@
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 public class OddsAndEvens {
     private static Scanner input = new Scanner(System.in).useLocale(Locale.US);
+    private static Random rand = new Random();
     private static final String ODDS = "Odds";
     private static final String EVENS = "Evens";
+
     public static void main(String[] args) {
 
         start();
@@ -20,7 +23,7 @@ public class OddsAndEvens {
             computer = EVENS;
             user = ODDS;
         }
-        else if((user.equals(EVENS))||(user.equals('E'))||(user.equals('e'))){
+        else if((user.equals(EVENS))||(user.equals("E"))||(user.equals("e"))){
             user    = EVENS;
         }
         else{
